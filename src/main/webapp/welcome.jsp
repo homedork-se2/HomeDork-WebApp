@@ -5,6 +5,7 @@
   Time: 8:11 PM
   To change this template use File | Settings | File Templates.
 --%>
+<jsp:useBean id="email" scope="session" type="java.lang.String"/>
 <%@ page contentType="text/html;charset=UTF-8" language="java" session="true" %>
 <html>
 <head>
