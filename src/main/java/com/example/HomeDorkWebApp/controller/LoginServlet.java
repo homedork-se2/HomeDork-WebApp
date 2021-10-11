@@ -1,4 +1,4 @@
-package com.example.HomeDorkWebApp;
+package com.example.HomeDorkWebApp.controller;
 
 import com.example.HomeDorkWebApp.model.User;
 import com.example.HomeDorkWebApp.service.UserLoginService;
