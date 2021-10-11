@@ -29,7 +29,8 @@
                 </div>
 
                 <div class="hidden md:flex items-center space-x-1">
-                    <a href="" class="py-2 px-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300">Signup</a>
+                    <a href="signup.jsp" class="py-2 px-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300">Signup</a>
+
                 </div>
 
 
