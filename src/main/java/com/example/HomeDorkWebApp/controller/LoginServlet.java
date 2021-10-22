@@ -1,6 +1,6 @@
 package com.example.HomeDorkWebApp.controller;
 
-import com.example.HomeDorkWebApp.model.User;
+import com.example.HomeDorkWebApp.model.UserFirebase;
 import com.example.HomeDorkWebApp.service.UserLoginService;
 
 import javax.servlet.*;
@@ -26,9 +26,9 @@ public class LoginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         System.out.println(username+"  "+password);
-        User user = userLoginService.loginAuthentication(username, password);
-        if (user != null){
-            HttpSession session =  userLoginService.sessionValidate(user, request);
+        UserFirebase userFirebase = userLoginService.loginAuthentication(username, password);
+        if (userFirebase != null){
+            HttpSession session =  userLoginService.sessionValidate(userFirebase, request);
             response.sendRedirect("welcome.jsp");
         }else {
             messages.put("index", "Incorrect password or username... please try again");

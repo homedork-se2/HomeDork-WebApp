@@ -1,6 +1,6 @@
 package com.example.HomeDorkWebApp.controller;
 
-import com.example.HomeDorkWebApp.model.User;
+import com.example.HomeDorkWebApp.model.UserFirebase;
 import com.example.HomeDorkWebApp.service.UserSignupService;
 
 import javax.servlet.*;
@@ -21,7 +21,7 @@ public class SignupServlet extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
         signupService = new UserSignupService();
-        User user = signupService.signUp(email, password);
-        signupService.validateSignUp(user, response);
+        UserFirebase userFirebase = signupService.signUp(email, password);
+        signupService.validateSignUp(userFirebase, response);
     }
 }

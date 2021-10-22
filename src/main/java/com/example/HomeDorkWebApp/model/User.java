@@ -1,31 +1,26 @@
 package com.example.HomeDorkWebApp.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class User {
-    private String displayName;
-    private String email;
-    private String tokenId;
+    public String name;
+    public String email;
+    public String uuid;
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "displayName='" + displayName + '\'' +
-                ", email='" + email + '\'' +
-                ", tokenId='" + tokenId + '\'' +
-                '}';
-    }
 
-    public User(String displayName, String email, String tokenId) {
-        this.displayName = displayName;
+    public User(String name, String email, String uuid) {
+        this.name = name;
         this.email = email;
-        this.tokenId = tokenId;
+        this.uuid = uuid;
     }
 
-    public String getDisplayName() {
-        return displayName;
+    public String getName() {
+        return name;
     }
 
-    public void setDisplayName(String displayName) {
-        this.displayName = displayName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -36,11 +31,8 @@ public class User {
         this.email = email;
     }
 
-    public String getTokenId() {
-        return tokenId;
+    public String getUuid() {
+        return uuid;
     }
 
-    public void setTokenId(String tokenId) {
-        this.tokenId = tokenId;
-    }
 }

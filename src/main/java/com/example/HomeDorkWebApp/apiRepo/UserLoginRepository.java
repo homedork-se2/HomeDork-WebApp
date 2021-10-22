@@ -2,9 +2,11 @@ package com.example.HomeDorkWebApp.apiRepo;
 
 import com.example.HomeDorkWebApp.model.SignInResponse;
 import com.example.HomeDorkWebApp.model.User;
+import com.example.HomeDorkWebApp.model.UserFirebase;
 import kong.unirest.GenericType;
 import kong.unirest.Unirest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class UserLoginRepository {
@@ -25,10 +27,22 @@ public class UserLoginRepository {
 
     public void getUserData(SignInResponse signInResponse){
         String urlCompletion = "{\"idToken\":\""+signInResponse.getIdToken()+"\"}\n";
-        List<User> users = Unirest.post("https://identitytoolkit.googleapis.com/v1/accounts:lookup?key="+apikey)
+        List<UserFirebase> userFirebases = Unirest.post("https://identitytoolkit.googleapis.com/v1/accounts:lookup?key="+apikey)
                 .body(urlCompletion)
-                .asObject(new GenericType<List<User>>() {
+                .asObject(new GenericType<List<UserFirebase>>() {
                 }).getBody();
+
+    }
+
+    public void addUserToServer(String UUID, String Name){
+        User user = Unirest.post("https://8c14-83-248-0-117.ngrok.io/hd-api/users/add/"+UUID+"/"+Name+"/{email}").
+                asObject(User.class).getBody();
+
+    }
+
+    public void addUserDevices(String UUID){
+
+    //   ArrayList<Object> = Unirest.get("https://8c14-83-248-0-117.ngrok.io/hd-api/users/add/"+UUID+"/");
 
     }
 }

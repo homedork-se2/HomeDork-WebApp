@@ -2,7 +2,7 @@ package com.example.HomeDorkWebApp.service;
 
 import com.example.HomeDorkWebApp.apiRepo.UserLoginRepository;
 import com.example.HomeDorkWebApp.model.SignInResponse;
-import com.example.HomeDorkWebApp.model.User;
+import com.example.HomeDorkWebApp.model.UserFirebase;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -11,13 +11,13 @@ public class UserLoginService {
     private UserLoginRepository userLoginRepository;
 
 
-    public User loginAuthentication(String username, String password){
+    public UserFirebase loginAuthentication(String username, String password){
         userLoginRepository = new UserLoginRepository();
         SignInResponse signInResponse = userLoginRepository.userLogin(username, password);
         if (signInResponse.getIdToken() == null){
             return null;
         }
-        return new User(signInResponse.getDisplayName(), signInResponse.getEmail(), signInResponse.getIdToken());
+        return new UserFirebase(signInResponse.getDisplayName(), signInResponse.getEmail(), signInResponse.getIdToken());
 
     }
 
@@ -25,9 +25,9 @@ public class UserLoginService {
 
     }
 
-    public HttpSession sessionValidate(User user, HttpServletRequest request){
+    public HttpSession sessionValidate(UserFirebase userFirebase, HttpServletRequest request){
         HttpSession session = request.getSession();
-        session.setAttribute("email", user.getEmail());
+        session.setAttribute("email", userFirebase.getEmail());
         return session;
 
     }
