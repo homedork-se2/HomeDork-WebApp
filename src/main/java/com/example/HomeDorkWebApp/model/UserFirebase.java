@@ -5,19 +5,31 @@ public class UserFirebase {
     private String email;
     private String tokenId;
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "displayName='" + displayName + '\'' +
-                ", email='" + email + '\'' +
-                ", tokenId='" + tokenId + '\'' +
-                '}';
+    public String getLocalId() {
+        return localId;
     }
 
-    public UserFirebase(String displayName, String email, String tokenId) {
+    public void setLocalId(String localId) {
+        this.localId = localId;
+    }
+
+    private String localId;
+
+    public UserFirebase(String displayName, String email, String tokenId, String localId) {
         this.displayName = displayName;
         this.email = email;
         this.tokenId = tokenId;
+        this.localId = localId;
+    }
+
+    @Override
+    public String toString() {
+        return "UserFirebase{" +
+                "displayName='" + displayName + '\'' +
+                ", email='" + email + '\'' +
+                ", tokenId='" + tokenId + '\'' +
+                ", localId='" + localId + '\'' +
+                '}';
     }
 
     public String getDisplayName() {

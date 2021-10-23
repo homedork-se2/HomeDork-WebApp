@@ -17,7 +17,7 @@ public class UserLoginService {
         if (signInResponse.getIdToken() == null){
             return null;
         }
-        return new UserFirebase(signInResponse.getDisplayName(), signInResponse.getEmail(), signInResponse.getIdToken());
+        return new UserFirebase(signInResponse.getDisplayName(), signInResponse.getEmail(), signInResponse.getIdToken(),signInResponse.getLocalId());
 
     }
 

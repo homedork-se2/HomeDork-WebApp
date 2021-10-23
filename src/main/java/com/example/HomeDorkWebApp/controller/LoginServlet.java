@@ -12,6 +12,30 @@ import java.util.Map;
 
 @WebServlet(name = "LoginServlet", value = "/LoginServlet")
 public class LoginServlet extends HttpServlet {
+  /*
+    public UserFirebase getUserFirebase() {
+        return userFirebase;
+    }
+
+    public void setUserFirebase(UserFirebase userFirebase) {
+        this.userFirebase = userFirebase;
+    }
+
+    public UserLoginService getUserLoginService() {
+        return userLoginService;
+    }
+
+    public void setUserLoginService(UserLoginService userLoginService) {
+        this.userLoginService = userLoginService;
+    }
+
+
+   */
+    public static UserFirebase userFirebase;
+
+
+
+
     private  UserLoginService userLoginService;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -25,8 +49,9 @@ public class LoginServlet extends HttpServlet {
         userLoginService = new UserLoginService();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        userFirebase= userLoginService.loginAuthentication(username, password);
         System.out.println(username+"  "+password);
-        UserFirebase userFirebase = userLoginService.loginAuthentication(username, password);
+
         if (userFirebase != null){
             HttpSession session =  userLoginService.sessionValidate(userFirebase, request);
             response.sendRedirect("welcome.jsp");

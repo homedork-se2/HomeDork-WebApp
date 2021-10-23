@@ -17,7 +17,7 @@ public class UserSignupService {
         if (signInResponse.getIdToken() == null){
             return null;
         }else {
-            return new UserFirebase("", signInResponse.getEmail(), signInResponse.getIdToken());
+            return new UserFirebase("", signInResponse.getEmail(), signInResponse.getIdToken(),signInResponse.getLocalId());
         }
 
     }
