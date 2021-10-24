@@ -10,6 +10,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <jsp:useBean id="email" scope="session" type="java.lang.String"/>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" session="true" %>
 href="DeviceServlet"
 <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">

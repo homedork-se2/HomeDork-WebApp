@@ -62,6 +62,7 @@
                 <h2 class="font-extrabold text-4xl py-2">HomeDork the next generation <br> of Smart House.</h2>
                 <h5 class="font-bold text-gray-500 text-base antialiased not-italic mb-12">HomeDork provides access to your smart house equipment,
                     <br> from lights, alarms, microwaves, TVs and many more. All in one single app.</h5>
+                <a href="Profile.html">html and java</a>
                 <input type="text" class="block w-96 border border-gray-400 rounded-full py-3 px-6 block mb-1" name="username" id="username" placeholder="username..." required>
                 <input type="password" class="block w-96 border border-gray-400 rounded-full py-3 px-6 block mb-1" name="password" id="password" placeholder="password..." required>
                 <span class="error">${messages}</span>
