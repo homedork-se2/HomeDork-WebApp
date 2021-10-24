@@ -46,7 +46,7 @@ public class DeviceServlet extends HttpServlet {
         nr.add(4);
         nr.add(5);
         request.setAttribute("nr", nr);
-        request.getRequestDispatcher("welcome.jsp").forward(request, response);
+        request.getRequestDispatcher("/welcome.jsp").forward(request, response);
 
     }
 

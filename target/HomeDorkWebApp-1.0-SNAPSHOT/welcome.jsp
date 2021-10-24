@@ -1,3 +1,4 @@
+
 <%@ page import="com.example.HomeDorkWebApp.controller.LoginServlet" %>
 <%@ page import="com.example.HomeDorkWebApp.model.Lamp" %>
 <%@ page import="java.util.ArrayList" %>
@@ -10,6 +11,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <jsp:useBean id="email" scope="session" type="java.lang.String"/>
+
 <%@ page contentType="text/html;charset=UTF-8" language="java" session="true" %>
 href="DeviceServlet"
 <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
@@ -45,8 +47,15 @@ href="DeviceServlet"
          which was previously set by the servlet
           "StudentServlet.java"
     --%>
-    <%ArrayList<Integer> std = (ArrayList<Integer>)request.getAttribute("nr");
-        for(Integer s:std){%>
+
+    <%ArrayList<Integer> std = (ArrayList<Integer>)  request.getAttribute("nr");
+
+         ArrayList<Integer>a= new ArrayList<>();
+         a.add(5);
+         a.add(4);
+         a.add(6);
+
+        for(Integer s:a){%>
 
     <%-- Arranging data in tabular form
     --%>

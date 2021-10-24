@@ -1,3 +1,4 @@
+
 <%@ page import="com.example.HomeDorkWebApp.controller.LoginServlet" %>
 <%@ page import="com.example.HomeDorkWebApp.model.Lamp" %>
 <%@ page import="java.util.ArrayList" %>
@@ -46,8 +47,15 @@ href="DeviceServlet"
          which was previously set by the servlet
           "StudentServlet.java"
     --%>
-    <%ArrayList<Integer> std = (ArrayList<Integer>)request.getAttribute("nr");
-        for(Integer s:std){%>
+
+    <%ArrayList<Integer> std = (ArrayList<Integer>)  request.getAttribute("nr");
+
+         ArrayList<Integer>a= new ArrayList<>();
+         a.add(5);
+         a.add(4);
+         a.add(6);
+
+        for(Integer s:a){%>
 
     <%-- Arranging data in tabular form
     --%>
