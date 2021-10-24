@@ -1,4 +1,8 @@
-<%--
+<%@ page import="com.example.HomeDorkWebApp.controller.LoginServlet" %>
+<%@ page import="com.example.HomeDorkWebApp.model.Lamp" %>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="com.example.HomeDorkWebApp.model.Fan" %>
+<%@ page import="com.example.HomeDorkWebApp.controller.DeviceServlet"%><%--
   Created by IntelliJ IDEA.
   User: Ali
   Date: 10/10/2021
@@ -7,7 +11,7 @@
 --%>
 <jsp:useBean id="email" scope="session" type="java.lang.String"/>
 <%@ page contentType="text/html;charset=UTF-8" language="java" session="true" %>
-
+href="DeviceServlet"
 <link href="https://unpkg.com/tailwindcss/dist/tailwind.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
 <style>
@@ -30,6 +34,32 @@
     <title>Welcome</title>
 </head>
 <body>
+<h1>Displaying Student List</h1>
+<table border ="1" width="500" align="center">
+    <tr bgcolor="00FF7F">
+        <th><b>Student Name</b></th>
+        <th><b>Student Age</b></th>
+        <th><b>Course Undertaken</b></th>
+    </tr>
+    <%-- Fetching the attributes of the request object
+         which was previously set by the servlet
+          "StudentServlet.java"
+    --%>
+    <%ArrayList<Integer> std = (ArrayList<Integer>)request.getAttribute("nr");
+        for(Integer s:std){%>
+
+    <%-- Arranging data in tabular form
+    --%>
+    <tr>
+
+        <td><input type="submit" class="block w-96 border border-gray-400 rounded-full py-3 px-6 bg-yellow-500 hover:bg-yellow-400" name="b1"value="<%=s%>" id=" " onclick='f1(this)'></td>
+
+    </tr>
+    <%}%>
+</table>
+<hr/>
+
+
 <%
     if (session.getAttribute("email") == null) {
         response.sendRedirect("index.jsp");
@@ -40,41 +70,13 @@
 Welcome ${email}
 
 <button onclick="lampcreate()">Create Heading</button>
-<script>
-    function lampcreate() {
-        var btn = document.createElement("BUTTON");
-        var t = document.createTextNode("CLICK ME");
 
-        btn.setAttribute("style","color:red;font-size:23px");
-        btn.appendChild(t);
-        document.body.appendChild(btn);
-
-        btn.setAttribute("onclick", alert("clicked"));
-
-    }
-</script>
-
-
-<table align="center" cellspacing="3" cellpadding="3">
+<h5>
     <%
-        int k=1;
-        for (int i = 1; i <= 10; i++) {
+        LoginServlet.userFirebase.getLocalId();
     %>
-    <tr>
-        <%
-            for (int j = 1; j <= 3; j++) {
-        %>
+</h5>
 
-        <td><input type="submit" class="block w-96 border border-gray-400 rounded-full py-3 px-6 bg-yellow-500 hover:bg-yellow-400" name="b1"value="<%=k%>" id="" onclick='f1(this)'></td>
-        <%
-                k++;
-            }
-        %>
-    </tr>
-    <%
-        }
-    %>
-</table>
 
 <script>
 
