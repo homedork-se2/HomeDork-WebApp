@@ -29,7 +29,7 @@ public class LoginServlet extends HttpServlet {
         User user = userLoginService.loginAuthentication(username, password);
         if (user != null){
             HttpSession session =  userLoginService.sessionValidate(user, request);
-            response.sendRedirect("welcome.jsp");
+            response.sendRedirect("dashboard.jsp");
         }else {
             messages.put("index", "Incorrect password or username... please try again");
             response.sendRedirect("index.jsp");
