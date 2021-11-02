@@ -1,4 +1,4 @@
-package com.example.HomeDorkWebApp.apiRepo;
+package com.example.HomeDorkWebApp.api;
 
 import com.example.HomeDorkWebApp.model.SignInResponse;
 import com.example.HomeDorkWebApp.model.User;

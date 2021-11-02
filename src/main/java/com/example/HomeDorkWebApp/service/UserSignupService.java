@@ -1,11 +1,9 @@
 package com.example.HomeDorkWebApp.service;
 
-import com.example.HomeDorkWebApp.apiRepo.UserSignupRepository;
-import com.example.HomeDorkWebApp.model.SignInResponse;
+import com.example.HomeDorkWebApp.api.UserSignupRepository;
 import com.example.HomeDorkWebApp.model.SignupResponse;
 import com.example.HomeDorkWebApp.model.User;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
