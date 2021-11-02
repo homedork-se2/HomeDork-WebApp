@@ -51,11 +51,12 @@
             <img class="pl-32" src="lamp.svg" alt="lamp image">
         </div>
 
+        <%for (int i = 0; i < 3; i++){%>
         <div class="shadow z-50 mx-auto bg-white w-96 px-16 py-16  h-1/5 rounded-t-3xl">
             <input class="" type="range" id="volume" name="volume" min="0" max="100"/>
         </div>
 
-
+        <% } %>
     </div>
 
 
