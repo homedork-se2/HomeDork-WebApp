@@ -3,17 +3,17 @@ $(document).ready(function (){
     let rangeArray = $(".slider-lamp");
     for (let i = 0; i < rangeArray.length; i++)
     {
-        rangeArray[i].addEventListener("change", dummyCode);
+        rangeArray[i].addEventListener("change", sendLampValue());
 
     }
-    function dummyCode(){
+    function sendLampValue(){
         var data = {
             value: this.value,
             id: this.id,
         };
         $.ajax({
             type: 'POST',
-            url: 'ServletRangeSlider',
+            url: 'ServletDashboard',
             data: data,
         });
 
@@ -35,7 +35,7 @@ $(document).ready(function (){
         };
         $.ajax({
             type: 'POST',
-            url: 'ServletRangeSlider',
+            url: 'ServletDashboard',
             data: data,
         });
 
