@@ -34,15 +34,14 @@ public class LampRepository {
 
     }
 
-    public double changeValueLamp(String ID, double level) {
-        Unirest.post(baseURL + ID + "/adjust/" + level);
-        Lamp lamp = Unirest.get(baseURL + ID).asObject(Lamp.class).getBody();
-        double lampValue = lamp.getLevel();
-        if (lampValue != level) {
-            return lampValue;
+    public void changeValueLamp(String ID, double level) {
+
+       int Status=  Unirest.put(baseURL + ID + "/adjust/" + level).asString().getStatus();
+       
+        if ( Status==200) {
+            System.out.println("Succesful" );
         } else {
-            System.out.println("Value did not change ");
-            return lampValue;
+            System.out.println("Value did not change :  " + Status );
         }
 
 
