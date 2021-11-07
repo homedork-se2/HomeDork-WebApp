@@ -17,7 +17,7 @@ public class UserLoginService {
         if (signInResponse.getIdToken() == null){
             return null;
         }
-        return new User(signInResponse.getDisplayName(), signInResponse.getEmail(), signInResponse.getIdToken());
+        return new User(signInResponse.getDisplayName(), signInResponse.getEmail(), signInResponse.getLocalId());
 
     }
 
