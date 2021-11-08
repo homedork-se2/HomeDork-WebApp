@@ -9,7 +9,7 @@ import kong.unirest.Unirest;
 import java.util.List;
 
 public class LampRepository {
-    String baseURL= "http://d971-83-248-0-117.ngrok.io/";
+    String baseURL= "http://c46e-85-197-159-58.ngrok.io/hd-api/users/";
     String hdServerLamp = "hd-api/users/";
 
 
@@ -20,18 +20,20 @@ public class LampRepository {
         return lamp;
     }
 
-    public Lamp turnOfLamp(String ID) {
-        Unirest.post(baseURL + ID + "/turnoff");
-        Lamp lamp = Unirest.get(baseURL + ID).asObject(Lamp.class).getBody();
-        return  lamp;
+    public void turnOfLamp(String ID, String lampId) {
+        //https://e22f-194-47-32-227.ngrok.io/hd-api/users/"+ID+"/lamps/"+LampId+"/turnOn
+        System.out.println(Unirest.put(baseURL + ID + "/lamps/"+lampId+"/turnOff").asString().getStatus());
+
+       // Lamp lamp = Unirest.get(baseURL + ID).asObject(Lamp.class).getBody();
+
     }
 
 
 
-    public Lamp turnOnLamp(String ID) {
-        Unirest.post(baseURL + ID + "/turnOn");
-        Lamp lamp = Unirest.get(baseURL + ID).asObject(Lamp.class).getBody();
-       return lamp;
+    public void turnOnLamp(String ID, String lampId) {
+
+        System.out.println(Unirest.put(baseURL + ID + "/lamps/"+lampId+"/turnOn").asString().getStatus());
+
 
     }
 

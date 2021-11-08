@@ -33,7 +33,7 @@ public class LoginServlet extends HttpServlet {
         if (user != null){
             HttpSession session =  userLoginService.sessionValidate(user, request);
             LampRequestService lampRequestService = new LampRequestService();
-            ArrayList<String> lampIDs = lampRequestService.getLamp("123");
+            ArrayList<String> lampIDs = lampRequestService.getLamp(user.getLocalId());
             System.out.println(lampIDs);
             request.setAttribute("ids", lampIDs);
             getServletContext().getRequestDispatcher("/dashboard.jsp").forward(request, response);
