@@ -3,21 +3,21 @@ package com.example.HomeDorkWebApp.model;
 public class User {
     private String displayName;
     private String email;
-    private String tokenId;
+    private String localId;
 
     @Override
     public String toString() {
         return "User{" +
                 "displayName='" + displayName + '\'' +
                 ", email='" + email + '\'' +
-                ", tokenId='" + tokenId + '\'' +
+                ", tokenId='" + localId + '\'' +
                 '}';
     }
 
-    public User(String displayName, String email, String tokenId) {
+    public User(String displayName, String email, String localId) {
         this.displayName = displayName;
         this.email = email;
-        this.tokenId = tokenId;
+        this.localId = localId;
     }
 
     public String getDisplayName() {
@@ -36,11 +36,11 @@ public class User {
         this.email = email;
     }
 
-    public String getTokenId() {
-        return tokenId;
+    public String getLocalId() {
+        return localId;
     }
 
-    public void setTokenId(String tokenId) {
-        this.tokenId = tokenId;
+    public void setLocalId(String localId) {
+        this.localId = localId;
     }
 }

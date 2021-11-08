@@ -19,9 +19,10 @@ public class SignupServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
+        String username = request.getParameter("username");
         String password = request.getParameter("password");
         signupService = new UserSignupService();
-        User user = signupService.signUp(email, password);
+        User user = signupService.signUp(username,email, password);
         signupService.validateSignUp(user, response);
     }
 }

@@ -9,11 +9,12 @@ import kong.unirest.Unirest;
 import java.util.List;
 
 public class LampRepository {
-    String baseURL= "https://8c14-83-248-0-117.ngrok.io/hd-api/";
+    String baseURL= "http://d971-83-248-0-117.ngrok.io/";
+    String hdServerLamp = "hd-api/users/";
 
 
     public List<Lamp> getLamb(String tokenId) {
-        List<Lamp> lamp = Unirest.get( baseURL + tokenId + "/lamp")
+        List<Lamp> lamp = Unirest.get( baseURL + tokenId + "/lamps")
                 .asObject(new GenericType<List<Lamp>>() {
                 }).getBody();
         return lamp;
@@ -34,15 +35,9 @@ public class LampRepository {
 
     }
 
-    public void changeValueLamp(String ID, double level) {
+    public int changeValueLamp(String userId,String lampId, String level) {
 
-       int Status=  Unirest.put(baseURL + ID + "/adjust/" + level).asString().getStatus();
-       
-        if ( Status==200) {
-            System.out.println("Succesful" );
-        } else {
-            System.out.println("Value did not change :  " + Status );
-        }
+       return Unirest.put(baseURL +userId +"/"+ lampId + "/adjust/" + level).asString().getStatus();
 
 
     }

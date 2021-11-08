@@ -11,9 +11,9 @@ public class UserSignupService {
 
     private UserSignupRepository userSignupRepository;
 
-    public User signUp(String email, String password){
+    public User signUp(String username, String email, String password){
         userSignupRepository = new UserSignupRepository();
-        SignupResponse signInResponse = userSignupRepository.userSignup(email, password);
+        SignupResponse signInResponse = userSignupRepository.FBuserSignup(username,email, password);
         if (signInResponse.getIdToken() == null){
             return null;
         }else {
@@ -23,7 +23,7 @@ public class UserSignupService {
     }
 
     public void validateSignUp(User user, HttpServletResponse response) throws IOException {
-        if (user.getTokenId() == null){
+        if (user.getLocalId() == null){
 
            response.sendRedirect("signup.jsp");
         }else {

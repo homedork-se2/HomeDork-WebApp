@@ -3,6 +3,7 @@ package com.example.HomeDorkWebApp.service;
 import com.example.HomeDorkWebApp.api.LampRepository;
 import com.example.HomeDorkWebApp.model.Lamp;
 import com.example.HomeDorkWebApp.model.State;
+import kong.unirest.Unirest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,6 +46,19 @@ public class LampRequestService {
         } else {
             return true;
         }
+    }
+
+    public void changeValueLamp(String userId, String lampId, String level) {
+
+        int status = lampRepository.changeValueLamp(userId,lampId, level);
+
+        if ( status==200) {
+            System.out.println("Succesful");
+        } else {
+            System.out.println("Value did not change :  " + status );
+        }
+
+
     }
 
 }
