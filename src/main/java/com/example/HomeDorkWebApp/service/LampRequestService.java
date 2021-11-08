@@ -26,26 +26,15 @@ public class LampRequestService {
         return lampid;
     }
 
-    public boolean turnOnLamp(String lampID) {
+    public void turnOnLamp(String lampID, String userId) {
         Lamp lamp;
-       lamp= lampRepository.turnOnLamp(lampID);
-        if (lamp.state.equals(State.ON)) {
-            return true;
-        } else {
-            System.out.println("Lamp did not turn on ");
-            return false;
+     lampRepository.turnOnLamp(userId,lampID);
 
-        }
     }
-    public boolean turnOffLamp(String LampID) {
-        Lamp lamp;
-        lamp= lampRepository.turnOnLamp(LampID);
-        if (lamp.state.equals(State.OFF)) {
-            System.out.println("Lamp did not turn off ");
-            return false;
-        } else {
-            return true;
-        }
+    public void turnOffLamp(String lampID, String userId) {
+
+         lampRepository.turnOnLamp(userId,lampID);
+
     }
 
     public void changeValueLamp(String userId, String lampId, String level) {

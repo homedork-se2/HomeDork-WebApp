@@ -15,6 +15,7 @@
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-1.10.2.js" type="text/javascript"> </script>
     <script src="js/dashboard.js" type="text/javascript"> </script>
+    <link rel="stylesheet" href="toggleButton.css">
     <style>
         .div-1{
             background-color: #FBAB7E;
@@ -90,6 +91,12 @@
         if (lampIDs != null){
             for (int i = 0; i < lampIDs.size(); i++){%>
         <div class="shadow z-50 mx-auto bg-white w-96 px-16 py-16  h-1/5 rounded-t-3xl">
+            <label class="switch">
+                <input class="toggle" value="1" type="checkbox" id="<%=lampIDs.get(i)%>">
+                <span class="slider round"></span>
+            </label>
+            <br>
+            <br>
             <input class="slider-lamp" type="range" id="<%=lampIDs.get(i)%>" name="volume" min="0" max="100"/>
         </div>
 

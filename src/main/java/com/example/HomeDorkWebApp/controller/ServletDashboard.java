@@ -1,5 +1,6 @@
 package com.example.HomeDorkWebApp.controller;
 
+import com.example.HomeDorkWebApp.api.LampRepository;
 import com.example.HomeDorkWebApp.service.LampRequestService;
 
 import javax.servlet.*;
@@ -18,9 +19,24 @@ public class ServletDashboard extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println(request.getParameter("value")+" "+request.getParameter("id"));
+        LampRepository lampRepository = new LampRepository();
+        String toggleValue = request.getParameter("toggleValue");
+        String toggleId = request.getParameter("toggleId");
+        if (toggleValue != null){
+            if (toggleValue.equals("true")) {
+                lampRepository.turnOnLamp("7IT6aTO2cThiDAOpHshvX9e8z9t1", toggleId);
+            }else {
+                lampRepository.turnOfLamp("7IT6aTO2cThiDAOpHshvX9e8z9t1", toggleId);
+            }
+        }
+
+
+
+        if (request.getParameter("sliderValue")!= null) {
+            System.out.println(request.getParameter("sliderValue") + " " + request.getParameter("sliderId"));
+        }
         LampRequestService lampRequestService = new LampRequestService();
-      lampRequestService.changeValueLamp("123",request.getParameter("value"),request.getParameter("id"));
+     // lampRequestService.changeValueLamp("123",request.getParameter("value"),request.getParameter("id"));
 
     }
 }
