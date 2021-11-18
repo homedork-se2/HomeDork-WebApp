@@ -25,12 +25,14 @@
         .div-2{
             background-color: rgba(155, 153, 153, 0.1)
         }
+
         .navbar{
             background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
         }
         .div-dashboard{
             background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
         }
+
 
     </style>
     <title>Welcome</title>
@@ -64,7 +66,7 @@
             <a href="#" class="pt-96">
                 <img src="images/setting.png" alt="settings" class="pl-6 w-14">
             </a>
-            <a href="#">
+            <a href="index.jsp">
                 <img src="images/exit.png" alt="exit" class="pl-6 w-14">
             </a>
 
@@ -74,83 +76,87 @@
         <div class="ml-20 w-full">
 
 
-<div class="profile_image-div div-1 h-44 flex items-center justify-center ">
-    <image src="ic.jpg" class="w-16 h-16 rounded-full"/>
-</div>
 
-
-<div class="flex flex-row justify-between pt-6 space-x-4">
-
-
-    <div class="div-2 flex flex-col space-x-3.5 space-y-3.5 w-1/4 h-screen rounded-t-3xl">
-        <div class="shadow z-50 mx-auto bg-white w-full  px-16 py-16  h-20  rounded-t-3xl">
-            <img class="pl-32" src="lamp.svg" alt="lamp image">
-        </div>
-
-        <% ArrayList<String> lampIDs = (ArrayList<String>) request.getAttribute("ids");
-        if (lampIDs != null){
-            for (int i = 0; i < lampIDs.size(); i++){%>
-        <div class="shadow z-50 mx-auto bg-white w-96 px-16 py-16  h-1/5 rounded-t-3xl">
-            <label class="switch">
-                <input class="toggle" value="1" type="checkbox" id="<%=lampIDs.get(i)%>">
-                <span class="slider round"></span>
-            </label>
-            <br>
-            <br>
-            <input class="slider-lamp" type="range" id="<%=lampIDs.get(i)%>" name="volume" min="0" max="100"/>
-        </div>
-
-        <%}
-            } %>
-    </div>
-
-
-
-
-
-    <div class="div-2 flex flex-col space-x-3.5 space-y-3.5 w-1/4 h-screen rounded-t-3xl">
-        <div class="shadow z-50 mx-auto bg-white w-full  px-16 py-16  h-20  rounded-t-3xl">
-            <img class="pl-32" src="lamp.svg" alt="lamp image">
-        </div>
-
-
-        <div class="flex flex-col z-50 mx-auto bg-white w-96 px-16 py-16  h-1/5 rounded-t-3xl ">
-            <div class="flex flex-row justify-center justify-between">
-                <span class="shadow rounded-full text-5xl" id="rangeValue">0</span>
-                <span class="shadow rounded-full text-5xl" id="rangeValueTwo">0</span>
+            <div class="div-dashboard profile_image-div div-1 h-44 flex items-center justify-center ">
+                <image src="images/ic.jpg" class="w-16 h-16 rounded-full"></image>
             </div>
 
-            <input class="pt-20 z-50" type="range" id="volum" name="volume" min="0" max="100" onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)"/>
+
+            <div class="flex flex-row ml-2 justify-between pt-6 space-x-4">
+
+
+                <div class="div-2 flex flex-col  space-y-3.5 w-1/4 h-screen rounded-t-3xl">
+                    <div class="shadow z-50 mx-auto bg-white w-full  px-16 md:px-2 py-16  h-20  rounded-t-3xl">
+                        <img class="mx-auto" src="images/lamp.svg" alt="lamp image">
+                    </div>
+
+                    <% ArrayList<String> lampIDs = (ArrayList<String>) request.getAttribute("ids");
+                        if (lampIDs != null){
+                            for (int i = 0; i < lampIDs.size(); i++){%>
+                    <div class="shadow flex flex-col z-50 mx-auto bg-white md:w-48 xl:w-64 2xl:w-80  py-16 md:py-6 xl:py-8 2xl:py-10 h-40  rounded-t-3xl rounded-b-3xl ">
+                        <h2 class="">Lamp id: <%=i%></h2>
+                        <div class="flex flex-row justify-center justify-between">
+                            <span class="shadow rounded-full text-5xl ml-2" id="rangeValue">0</span>
+                            <label class="switch mt-2 mr-6">
+                                <input class="toggle" value="1" type="checkbox" id="hihai">
+                                <span class="slider round "></span>
+                            </label>
+                        </div>
+
+                        <br>
+                        <br>
+                        <input class="slider-lamp pt-12 z-50" type="range" id="<%=lampIDs.get(i)%>" name="volume" min="0" max="100" onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)"/>
+                        <script type="text/javascript">
+                            function rangeSlide(value) {
+                                document.getElementById('rangeValue').innerHTML = value;
+                            }
+                        </script>
+                    </div>
+                    <%}
+                    } %>
+
+                </div>
+
+
+
+
+                <div class="div-2 flex flex-col  space-y-3.5 w-1/4 h-screen rounded-t-3xl">
+                    <div class="shadow z-50 mx-auto bg-white w-full  px-16 md:px-2 py-16  h-20  rounded-t-3xl">
+                        <img class="mx-auto w-12 h-12" src="images/fan.png" alt="lamp image">
+                    </div>
+
+
+
+                </div>
+
+                <div class="div-2 flex flex-col  space-y-3.5 w-1/4 h-screen rounded-t-3xl">
+                    <div class="shadow z-50 mx-auto bg-white w-full  px-16 md:px-2 py-16  h-20  rounded-t-3xl">
+                        <img class="mx-auto w-12 h-12" src="images/thermometer.png" alt="lamp image">
+                    </div>
+
+
+
+                </div>
+
+
+
+                <div class="div-2 flex flex-col  space-y-3.5 w-1/4 h-screen rounded-t-3xl">
+                    <div class="shadow z-50 mx-auto bg-white w-full  px-16 md:px-2 py-16  h-20  rounded-t-3xl">
+                        <img class="mx-auto w-12 h-12" src="images/others.png" alt="lamp image">
+
+
+                    </div>
+                </div>
+
+            </div>
         </div>
+
+
+
+
+
+
     </div>
-
-    <div class="div-2 w-1/4 h-screen rounded-t-3xl">
-        <div class="z-50 mx-auto bg-white w-full  px-16 py-16  h-20  rounded-t-3xl">
-            <img class="pl-32" src="lamp.svg" alt="lamp image">
-        </div>
-
-    </div>
-
-    <div class="div-2  w-1/4 h-screen   rounded-t-3xl">
-        <div class="z-50 mx-auto bg-white w-full  px-16 py-16  h-20  rounded-t-3xl">
-            <img class="pl-32" src="lamp.svg" alt="lamp image">
-        </div>
-
-    </div>
-
-</div>
-        </div>
-
-
-
-<script type="text/javascript">
-    function rangeSlide(value) {
-        document.getElementById('rangeValue').innerHTML = value;
-    }
-</script>
-
-
-</div>
 </div>
 </body>
 </html>

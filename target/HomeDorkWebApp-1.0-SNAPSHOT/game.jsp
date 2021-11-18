@@ -29,7 +29,7 @@
   <div class="navbar w-20 space-y-6 flex flex-col content-center fixed h-full z-50 shadow">
 
     <!---logo--->
-    <a href="#" class="pt-32">
+    <a href="${pageContext.request.contextPath}/ServletDashboard" class="pt-32">
       <img src="images/dashboard.png" alt="dashboard" class="pl-6 w-14">
     </a>
 
@@ -45,7 +45,7 @@
     <a href="#" class="pt-96">
       <img src="images/setting.png" alt="settings" class="pl-6 w-14">
     </a>
-    <a href="#">
+    <a href="index.jsp">
       <img src="images/exit.png" alt="exit" class="pl-6 w-14">
     </a>
 

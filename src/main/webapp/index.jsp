@@ -58,18 +58,17 @@
     <script src="mobile.js"></script>
     <form action="/LoginServlet" method="POST">
         <div class="flex flex-row">
-            <div class="flex flex-col my-32 ml-56 w-100">
-                <h2 class="font-extrabold text-4xl py-2">HomeDork the next generation <br> of Smart House.</h2>
+            <div class="flex flex-col my-32 ml-44 md:ml-20 w-100 md:w-64 2xl:w-auto 2xl:ml-44">
+                <h2 class="font-extrabold text-4xl py-2 md:text-2xl 2xl:text-4xl">HomeDork the next generation <br> of Smart House.</h2>
                 <h5 class="font-bold text-gray-500 text-base antialiased not-italic mb-12">HomeDork provides access to your smart house equipment,
                     <br> from lights, alarms, microwaves, TVs and many more. All in one single app.</h5>
-                <input type="text" class="block w-96 border border-gray-400 rounded-full py-3 px-6 block mb-1" name="username" id="username" placeholder="username..." required>
-                <input type="password" class="block w-96 border border-gray-400 rounded-full py-3 px-6 block mb-1" name="password" id="password" placeholder="password..." required>
-                <span class="error">${messages}</span>
-                <button type="submit" class="block w-96 border border-gray-400 rounded-full py-3 px-6 bg-yellow-500 hover:bg-yellow-400">login</button>
+                <input type="text" class="block xl:w-96  lg:w-80 border  md:w-80 border-gray-400 rounded-full py-3 px-6 block mb-1" name="username" id="username" placeholder="username..." required>
+                <input type="password" class="block xl:w-96 w-96 lg:w-80 md:w-80 border border-gray-400 rounded-full py-3 px-6 block mb-1" name="password" id="password" placeholder="password..." required>
+                <button type="submit" class="block xl:w-96 w-96 lg:w-80 md:w-80 border border-gray-400 rounded-full py-3 px-6 bg-yellow-500 hover:bg-yellow-400">login</button>
             </div>
 
-            <div class="justify-between absolute right-0  mt-24 mr-48">
-                <img src="images/Kad.png" alt="Image of a smart house" class="w-auto ml-56 mb-12 rounded-full shadow-xl">
+            <div class="justify-between absolute right-0  mt-24 md:mt-36 mr-48 md:mr-20 xl:mr-0 xl:ml-80">
+                <img src="images/Kad.png" alt="Image of a smart house" class="w-auto ml-56 2xl:mr-20 mb-12 lg:mb-0 rounded-full shadow-xl md:w-64 lg:w-96 xl:w-1/2 2xl:w-auto">
             </div>
         </div>
     </form>
