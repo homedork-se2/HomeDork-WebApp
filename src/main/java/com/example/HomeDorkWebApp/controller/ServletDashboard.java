@@ -14,6 +14,11 @@ import java.util.ArrayList;
 public class ServletDashboard extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        LampRequestService lampRequestService = new LampRequestService();
+        ArrayList<String> lampIDs = lampRequestService.getLamp("123");
+        System.out.println(lampIDs);
+        request.setAttribute("ids", lampIDs);
+        response.sendRedirect("dashboard.jsp");
 
     }
 

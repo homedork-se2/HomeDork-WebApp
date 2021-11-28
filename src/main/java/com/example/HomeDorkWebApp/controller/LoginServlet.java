@@ -17,7 +17,6 @@ public class LoginServlet extends HttpServlet {
     private  UserLoginService userLoginService;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 
     @Override
@@ -33,7 +32,7 @@ public class LoginServlet extends HttpServlet {
         if (user != null){
             HttpSession session =  userLoginService.sessionValidate(user, request);
             LampRequestService lampRequestService = new LampRequestService();
-            ArrayList<String> lampIDs = lampRequestService.getLamp(user.getLocalId());
+            ArrayList<String> lampIDs = lampRequestService.getLamp("123");
             System.out.println(lampIDs);
             request.setAttribute("ids", lampIDs);
             getServletContext().getRequestDispatcher("/dashboard.jsp").forward(request, response);
