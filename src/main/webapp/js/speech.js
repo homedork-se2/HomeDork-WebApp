@@ -22,7 +22,7 @@ function SpeechRecognition() {
         if (transcript.includes("game")){
             game.click();
         }else if (transcript.includes("dashboard")){
-           dashboard.click();
+            dashboard.click();
         }else if (transcript.includes("setting") || transcript.includes("settings")){
             settings.click();
         }else if (transcript.includes("calendar")){

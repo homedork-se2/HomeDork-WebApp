@@ -67,11 +67,11 @@
                 <img src="images/smile.png" alt="" class="pl-6 w-14">
             </a>
             <a href="disco.jsp" id="disco">
-                <img src="images/party.png" alt="" class="pl-6 w-14">
+                <img src="party.png" alt="" class="pl-6 w-14">
             </a>
 
             <button onclick="SpeechRecognition()">
-                <img src="images/microphone-black-shape.png" class="pl-6 w-14" id="mic">
+                <img src="microphone-black-shape.png" class="pl-6 w-14" id="mic">
             </button>
 
             <a href="/SettingsServlet" class="pt-80" id="settings">
@@ -220,9 +220,9 @@
                     <div class="pt-6">
                         <div class="pl-2 flex w-full max-w-md mx-auto space-x-3">
                             <form action="/CalendarServlet" method="post">
-                                <input type="text" id="date" name="date" hidden>
-                                <input type="text" id="time" name="time" hidden>
-                                <input class="subv flex-1 appearance-none border border-transparent w-full py-2 ml-6 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-md rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="small note..." id="note" name="note" maxlength = "30" required>
+                                <label for="date"></label><input type="text" id="date" name="date" hidden>
+                                <label for="time"></label><input type="text" id="time" name="time" hidden>
+                                <label for="note"></label><input class="subv flex-1 appearance-none border border-transparent w-full py-2 ml-6 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-md rounded-lg text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" type="text" placeholder="small note..." id="note" name="note" maxlength = "30" required>
                                 <button type="submit" onclick="addEvent()"  class="flex-shrink-0 bg-purple-600 text-white text-base font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 focus:ring-offset-purple-200">
                                     add event
                                 </button>
@@ -318,4 +318,3 @@
 </div>
 </body>
 </html>
-
