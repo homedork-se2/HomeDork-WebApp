@@ -12,7 +12,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="tailwind.css">
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
   <link rel="stylesheet" href="da.css" id="dark">
   <link rel="stylesheet" href="da2.css" id="dark2">
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -26,7 +26,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bodyBg ">
+<body class="bodyBg">
 <script src="js/darkmode.js"></script>
 <div class="relative min-h-screen flex">
   <div class="navigationBar w-20 space-y-6 flex flex-col content-center fixed h-full z-50 shadow">
@@ -46,10 +46,10 @@
       <img src="images/smile.png" alt="" class="pl-6 w-14">
     </a>
     <a href="disco.jsp" id="disco">
-      <img src="images/party.png" alt="" class="pl-6 w-14">
+      <img src="party.png" alt="" class="pl-6 w-14">
     </a>
     <button onclick="SpeechRecognition()">
-      <img src="images/microphone-black-shape.png" class="pl-6 w-14" id="mic">
+      <img src="microphone-black-shape.png" class="pl-6 w-14" id="mic">
     </button>
 
     <a href="/SettingsServlet" class="pt-80" id="settings">

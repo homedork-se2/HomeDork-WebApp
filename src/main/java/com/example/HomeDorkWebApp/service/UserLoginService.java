@@ -17,6 +17,7 @@ public class UserLoginService {
         if (signInResponse.getIdToken() == null){
             return null;
         }
+        System.out.println("PRINTING SIGNInRESPONSE: \n"+signInResponse);
         return new User(signInResponse.getDisplayName(), signInResponse.getEmail(), signInResponse.getLocalId());
 
     }
@@ -27,7 +28,7 @@ public class UserLoginService {
 
     public HttpSession sessionValidate(User user, HttpServletRequest request){
         HttpSession session = request.getSession();
-
+        System.out.println("PRINTING SESSION DATA: \n"+user.getLocalId());
         session.setAttribute("email", user.getLocalId());
         return session;
 

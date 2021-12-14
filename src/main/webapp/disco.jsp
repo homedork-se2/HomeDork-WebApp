@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="tailwind.css">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-1.10.2.js" type="text/javascript"> </script>
     <script src="js/dashboard.js" type="text/javascript"> </script>
     <link rel="stylesheet" href="da.css" id="dark">
@@ -63,11 +63,11 @@
                 <img src="images/smile.png" alt="" class="pl-6 w-14">
             </a>
             <a href="disco.jsp" id="disco">
-                <img src="images/party.png" alt="" class="pl-6 w-14">
+                <img src="party.png" alt="" class="pl-6 w-14">
             </a>
 
             <button onclick="SpeechRecognition()">
-                <img src="images/microphone-black-shape.png" class="pl-6 w-14" id="mic">
+                <img src="microphone-black-shape.png" class="pl-6 w-14" id="mic">
             </button>
 
             <a href="/SettingsServlet" class="pt-80" id="settings">

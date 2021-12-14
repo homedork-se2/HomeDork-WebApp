@@ -54,10 +54,10 @@
         <img src="images/smile.png" alt="" class="pl-6 w-14">
       </a>
       <a href="disco.jsp" id="disco">
-        <img src="images/party.png" alt="" class="pl-6 w-14">
+        <img src="party.png" alt="" class="pl-6 w-14">
       </a>
       <button onclick="SpeechRecognition()">
-        <img src="images/microphone-black-shape.png" class="pl-6 w-14" id="mic">
+        <img src="microphone-black-shape.png" class="pl-6 w-14" id="mic">
       </button>
 
       <a href="/SettingsServlet" class="pt-80" id="settings">

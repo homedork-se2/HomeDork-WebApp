@@ -1,10 +1,4 @@
-<%@ page import="java.util.ArrayList" %><%--
-  Created by IntelliJ IDEA.
-  User: Ali
-  Date: 10/10/2021
-  Time: 8:11 PM
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="java.util.ArrayList" %>
 <jsp:useBean id="email" scope="session" type="java.lang.String"/>
 <%@ page contentType="text/html;charset=UTF-8" language="java" session="true" %>
 <html class="dark">
@@ -51,11 +45,11 @@
         <!--sidebar-->
         <div class="navigationBar w-20 space-y-6 flex flex-col content-center fixed h-full">
             <!---logo--->
-            <a href="/ServletDashboard" class="pt-32" id="dash">
+            <a href="${pageContext.request.contextPath}/ServletDashboard" class="pt-32" id="dash">
                 <img src="images/dashboard.png" alt="" class="pl-6 w-14">
             </a>
 
-            <a href="/CalendarServlet" methods="post" id="calendar">
+            <a href="${pageContext.request.contextPath}/CalendarServlet" methods="post" id="calendar">
                 <img src="images/calendar.png" alt="" class="pl-6 w-14">
             </a>
             <a href="game.jsp" id="game">
@@ -65,10 +59,10 @@
                 <img src="images/smile.png" alt="" class="pl-6 w-14">
             </a>
             <a href="disco.jsp" id="disco">
-                <img src="images/party.png" alt="" class="pl-6 w-14">
+                <img src="party.png" alt="" class="pl-6 w-14">
             </a>
             <button onclick="SpeechRecognition()">
-                <img src="images/microphone-black-shape.png" class="pl-6 w-14" id="mic">
+                <img src="microphone-black-shape.png" class="pl-6 w-14" id="mic">
             </button>
 
             <a href="/SettingsServlet" class="pt-80" id="settings">
