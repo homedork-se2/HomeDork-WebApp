@@ -45,11 +45,11 @@
         <!--sidebar-->
         <div class="navigationBar w-20 space-y-6 flex flex-col content-center fixed h-full">
             <!---logo--->
-            <a href="${pageContext.request.contextPath}/ServletDashboard" class="pt-32" id="dash">
+            <a href="/ServletDashboard" class="pt-32" id="dash">
                 <img src="images/dashboard.png" alt="" class="pl-6 w-14">
             </a>
 
-            <a href="${pageContext.request.contextPath}/CalendarServlet" methods="post" id="calendar">
+            <a href="/CalendarServlet" methods="post" id="calendar">
                 <img src="images/calendar.png" alt="" class="pl-6 w-14">
             </a>
             <a href="game.jsp" id="game">
