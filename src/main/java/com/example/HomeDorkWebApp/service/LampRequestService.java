@@ -28,12 +28,12 @@ public class LampRequestService {
 
     public void turnOnLamp(String lampID, String userId) {
         Lamp lamp;
-     lampRepository.turnOnLamp(userId,lampID);
+        lampRepository.turnOnLamp(userId,lampID);
 
     }
     public void turnOffLamp(String lampID, String userId) {
 
-         lampRepository.turnOnLamp(userId,lampID);
+        lampRepository.turnOnLamp(userId,lampID);
 
     }
 
