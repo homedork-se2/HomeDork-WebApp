@@ -10,7 +10,7 @@ import java.util.List;
 
 public class FanRepostiory {
 
-    String baseURL= "https://8c14-83-248-0-117.ngrok.io/hd-api/";
+    String baseURL= "http://e436-83-248-0-117.ngrok.io/hd-api/";
 
 
     public List<Fan> getFan(String tokenId) {
@@ -35,7 +35,7 @@ public class FanRepostiory {
     public Fan turnOnFan(String ID) {
         Unirest.post(baseURL + ID + "/turnOn");
         Fan fan = Unirest.get(baseURL + ID).asObject(Fan.class).getBody();
-       return fan;
+        return fan;
 
     }
 
