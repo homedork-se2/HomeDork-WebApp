@@ -23,12 +23,11 @@ public class UserLoginRepository {
 
     }
 
-    public void getUserData(SignInResponse signInResponse){
+    public SignInResponse getUserData(SignInResponse signInResponse){
         String urlCompletion = "{\"idToken\":\""+signInResponse.getIdToken()+"\"}\n";
-        List<User> users = Unirest.post("https://identitytoolkit.googleapis.com/v1/accounts:lookup?key="+apikey)
-                .body(urlCompletion)
-                .asObject(new GenericType<List<User>>() {
-                }).getBody();
+       SignInResponse signInResponse1 = Unirest.get("https://homedork-8404f-default-rtdb.firebaseio.com/users/"+signInResponse.getLocalId()+".json")
+                                                .asObject(SignInResponse.class).getBody();
+       return signInResponse1;
 
     }
 }

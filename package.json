@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.4",
+    "tailwindcss": "^2.2.19"
+  },
+  "scripts": {
+    "build-css": "tailwindcss build -i src/main/webapp/tailwindinstall.css -o src/main/webapp/tailwind.css",
+    "prod": "NODE_ENV=production tailwindcss build -i src/main/webapp/tailwindinstall.css -o src/main/webapp/tailwind.css"
+  },
+  "optionalDependencies": {
+    "win-node-env": "^0.5.0"
+  }
+}

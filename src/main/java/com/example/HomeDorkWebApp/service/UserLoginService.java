@@ -27,7 +27,8 @@ public class UserLoginService {
 
     public HttpSession sessionValidate(User user, HttpServletRequest request){
         HttpSession session = request.getSession();
-        session.setAttribute("email", user.getEmail());
+
+        session.setAttribute("email", user.getLocalId());
         return session;
 
     }

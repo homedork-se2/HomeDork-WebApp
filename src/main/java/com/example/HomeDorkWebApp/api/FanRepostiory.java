@@ -10,7 +10,7 @@ import java.util.List;
 
 public class FanRepostiory {
 
-    String baseURL= "https://8c14-83-248-0-117.ngrok.io/hd-api/";
+    String baseURL= "http://e436-83-248-0-117.ngrok.io/hd-api/";
 
 
     public List<Fan> getFan(String tokenId) {

@@ -7,12 +7,14 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
-<html lang="en" onclick="jump()">
+<html lang="en" class="dark" onclick="jump()">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="tailwind.css">
+  <link rel="stylesheet" href="da.css" id="dark">
+  <link rel="stylesheet" href="da2.css" id="dark2">
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <style>
     .navbar{
@@ -24,33 +26,41 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="bodyBg ">
+<script src="js/darkmode.js"></script>
 <div class="relative min-h-screen flex">
-  <div class="navbar w-20 space-y-6 flex flex-col content-center fixed h-full z-50 shadow">
+  <div class="navigationBar w-20 space-y-6 flex flex-col content-center fixed h-full z-50 shadow">
 
     <!---logo--->
-    <a href="${pageContext.request.contextPath}/ServletDashboard" class="pt-32">
-      <img src="images/dashboard.png" alt="dashboard" class="pl-6 w-14">
+    <a href="/ServletDashboard" class="pt-32" id="dash">
+      <img src="images/dashboard.png" alt="" class="pl-6 w-14">
     </a>
 
-    <a href="#" >
-      <img src="images/calendar.png" alt="calendar" class="pl-6 w-14">
+    <a href="/CalendarServlet" methods="post" id="calendar">
+      <img src="images/calendar.png" alt="" class="pl-6 w-14">
     </a>
-    <a href="#" >
-      <img src="images/video-console.png" alt="game" class="pl-6 w-14">
+    <a href="game.jsp" id="game">
+      <img src="images/video-console.png" alt="" class="pl-6 w-14">
     </a>
-    <a href="#">
-      <img src="images/smile.png" alt="smile" class="pl-6 w-14">
+    <a href="#" id="smile">
+      <img src="images/smile.png" alt="" class="pl-6 w-14">
     </a>
-    <a href="#" class="pt-96">
-      <img src="images/setting.png" alt="settings" class="pl-6 w-14">
+    <a href="disco.jsp" id="disco">
+      <img src="images/party.png" alt="" class="pl-6 w-14">
     </a>
-    <a href="index.jsp">
-      <img src="images/exit.png" alt="exit" class="pl-6 w-14">
+    <button onclick="SpeechRecognition()">
+      <img src="images/microphone-black-shape.png" class="pl-6 w-14" id="mic">
+    </button>
+
+    <a href="/SettingsServlet" class="pt-80" id="settings">
+      <img src="images/setting.png" alt="" class="pl-6 w-14">
+    </a>
+    <a href="index.jsp" id="mainPage">
+      <img src="images/exit.png" alt="" class="pl-6 w-14">
     </a>
 
   </div>
-
+  <script src="js/newSpeech.js"></script>
 <div class="m-40 w-full">
 
 <div class="game">
@@ -68,6 +78,7 @@
       <a onclick="changeCharacter('./images/pikachu.gif')">Pikachu</a>
     </div>
   </div>
+  <label for="toggle"></label><input type="checkbox" name="" id="toggle">
 
   <p id="score">Score: <span id="scoreSpan"></span></p>
   <p id="gameOver"></p>
@@ -77,6 +88,9 @@
 </div>
 <script src="js/game.js"></script>
 
+<script src="js/darkmode.js">
+
+</script>
 </body>
 
 </html>

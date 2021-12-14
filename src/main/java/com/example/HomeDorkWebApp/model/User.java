@@ -1,5 +1,6 @@
 package com.example.HomeDorkWebApp.model;
 
+
 public class User {
     private String displayName;
     private String email;

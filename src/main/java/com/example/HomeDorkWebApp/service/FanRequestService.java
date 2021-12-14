@@ -12,7 +12,7 @@ import java.util.List;
 public class FanRequestService {
     FanRepostiory fanRepostiory = new FanRepostiory();
 
-    public ArrayList<String> getFan(String userID) {
+    public ArrayList<String> getFans(String userID) {
         List<Fan> fan = fanRepostiory.getFan(userID);
         if (fan == null) {
             System.out.println("did not get fans");

@@ -1,0 +1,29 @@
+.bodyBg{
+
+}
+
+.calendarz{
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+}
+
+.upperBodyDark{
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+
+
+}
+
+.navigationBar{
+    background-image: linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%);
+
+
+
+}
+
+.upperDeviceSection{
+
+
+}
+
+.textDarkMode{
+    color: #000000;
+}

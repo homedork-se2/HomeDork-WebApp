@@ -1,0 +1,33 @@
+.bodyBg{
+    --tw-bg-opacity: 1;
+    background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
+}
+
+.upperBodyDark{
+    --tw-bg-opacity: 1;
+    background-color: rgba(75, 85, 99, var(--tw-bg-opacity));
+
+
+}
+
+.navigationBar{
+    --tw-bg-opacity: 1;
+    background-color: rgba(75, 85, 99, var(--tw-bg-opacity));
+
+
+
+}
+
+.upperDeviceSection{
+    --tw-bg-opacity: 1;
+    background-color: rgba(75, 85, 99, var(--tw-bg-opacity));
+
+}
+
+.textDarkMode{
+    color: #EEEEEE;
+}
+
+.devices{
+    background-color: rgb(222,200,170);
+}

@@ -1,11 +1,12 @@
 package com.example.HomeDorkWebApp.api;
 
+import com.example.HomeDorkWebApp.model.SignInResponse;
 import com.example.HomeDorkWebApp.model.SignupResponse;
 import kong.unirest.Unirest;
 
 public class UserSignupRepository {
     private final String apikey = "AIzaSyB2mndyKz8ozmroAGsUiKRdrnB2-azxYyY";
-    private final String hdServerURL = "";              //homedork url
+    private final String hdServerURL = "https://homedork-8404f-default-rtdb.firebaseio.com/";              //homedork url
     public String urlCompletion;
 
     public SignupResponse FBuserSignup(String username, String email, String password){
@@ -15,26 +16,31 @@ public class UserSignupRepository {
                 .body(urlCompletion).asObject(SignupResponse.class).getBody();
 
 
-        System.out.println(signInResponse);
-        /*
+       // System.out.println(signInResponse);
+/*
         if (signInResponse != null) {
             signUpHDServer(username, email, signInResponse.getLocalId());
         }else {
             System.out.println("signInResponse is null, data was not sent to server");
         }
 
-         */
+ */
+
+
         return signInResponse;
 
     }
 
     public void signUpHDServer(String username, String email, String id){
-        int status = Unirest.post(hdServerURL+"users/add/"+id+"/"+username+"/"+email).asString().getStatus();
+      //  int status = Unirest.put(hdServerURL+"Users/"+id+".json").body(new SignInResponse(email, username)).asString().getStatus();
+/*
         if (status == 200){
             System.out.println("User was pushed to HD server");
         }else {
             System.out.println("user was not pushed to HD server");
         }
+
+ */
     }
 
 }
