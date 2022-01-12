@@ -7,6 +7,7 @@ public class UserSignupRepository {
     private final String apikey = "AIzaSyB2mndyKz8ozmroAGsUiKRdrnB2-azxYyY";
     private final String hdServerURL = "";              //homedork url
     public String urlCompletion;
+    private String url;
 
     public SignupResponse FBuserSignup(String username, String email, String password){
         urlCompletion = "{\"email\":\""+email+"\",\"password\":\""+password+"\",\"returnSecureToken\":true}\n";
@@ -16,14 +17,14 @@ public class UserSignupRepository {
 
 
         System.out.println(signInResponse);
-        /*
+
         if (signInResponse != null) {
             signUpHDServer(username, email, signInResponse.getLocalId());
         }else {
             System.out.println("signInResponse is null, data was not sent to server");
         }
 
-         */
+
         return signInResponse;
 
     }

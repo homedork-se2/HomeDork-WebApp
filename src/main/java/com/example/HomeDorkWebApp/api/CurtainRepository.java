@@ -9,7 +9,7 @@ import java.util.List;
 
 public class CurtainRepository {
 
-    String baseURL= "http://6ee6-83-248-0-117.ngrok.io/hd-api/users/";
+    String baseURL= "http://258e-83-248-0-117.ngrok.io/hd-api/users/";
     String hdServerLamp = "hd-api/users/";
 ///{userId}/curtains (beginning of each alarm)
 
@@ -18,6 +18,7 @@ public class CurtainRepository {
         List<Curtain> curtains = Unirest.get( baseURL + tokenId + "/curtains")
                 .asObject(new GenericType<List<Curtain>>() {
                 }).getBody();
+        if (curtains != null)
         for (int i = 0; i < curtains.size(); i++){
             ids.add(curtains.get(i).id);
         }
@@ -43,7 +44,7 @@ public class CurtainRepository {
 
     public int slideValueCurtain(String userId,String curtainId, String value) {
 
-        return Unirest.put(baseURL +userId +"/curtains"+ curtainId + "/adjust/" + value).asString().getStatus();
+        return Unirest.put(baseURL +userId +"/curtains/"+ curtainId + "/adjust/" + value).asString().getStatus();
 
 
     }

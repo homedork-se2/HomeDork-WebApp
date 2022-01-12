@@ -9,15 +9,16 @@ import java.util.List;
 
 public class ThermometerRepository {
     ///{userId}/therms
-    String baseURL= "http://6ee6-83-248-0-117.ngrok.io/hd-api/users/";
+    String baseURL= "http://258e-83-248-0-117.ngrok.io/hd-api/users/";
     String hdServerLamp = "hd-api/users/";
 ///{userId}/therms (beginning of each alarm)
 
     public List<String> getThermometers(String tokenId) {
         List<String> ids = new ArrayList<>();
-        List<Thermometer> thermometers = Unirest.get( baseURL + tokenId + "/curtains")
+        List<Thermometer> thermometers = Unirest.get( baseURL + tokenId + "/therms")
                 .asObject(new GenericType<List<Thermometer>>() {
                 }).getBody();
+        if (thermometers != null)
         for (int i = 0; i < thermometers.size(); i++){
             ids.add(thermometers.get(i).id);
         }
@@ -42,9 +43,9 @@ public class ThermometerRepository {
 
     }
 
-    public int slideValueThermometer(String userId,String thermId, String value) {
+    public void slideValueThermometer(String userId,String thermId, String value) {
 
-        return Unirest.put(baseURL +userId +"/therms"+ thermId + "/adjust/" + value).asString().getStatus();
+        Unirest.put(baseURL +userId +"/therms/"+ thermId + "/adjust/" + value).asString().getStatus();
 
 
     }

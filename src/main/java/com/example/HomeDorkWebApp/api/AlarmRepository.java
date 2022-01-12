@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AlarmRepository {
-    String baseURL= "http://6ee6-83-248-0-117.ngrok.io/hd-api/users/";
+    String baseURL= "http://258e-83-248-0-117.ngrok.io/hd-api/users/";
     String hdServerLamp = "hd-api/users/";
 ///{userId}/alarms (beginning of each alarm)
 
@@ -17,8 +17,11 @@ public class AlarmRepository {
         List<Alarm> alarms = Unirest.get( baseURL + tokenId + "/alarms")
                 .asObject(new GenericType<List<Alarm>>() {
                 }).getBody();
-        for (int i = 0; i < alarms.size(); i++){
-          ids.add(alarms.get(i).id);
+
+        if(alarms != null) {
+            for (int i = 0; i < alarms.size(); i++) {
+                ids.add(alarms.get(i).id);
+            }
         }
         return ids;
     }
@@ -42,7 +45,7 @@ public class AlarmRepository {
 
     public int slideValueAlarm(String userId,String alarmId, String value) {
 
-        return Unirest.put(baseURL +userId +"/alarms"+ alarmId + "/adjust/" + value).asString().getStatus();
+        return Unirest.put(baseURL +userId +"/alarms/"+ alarmId + "/adjust/" + value).asString().getStatus();
 
 
     }

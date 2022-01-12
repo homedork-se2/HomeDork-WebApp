@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="da.css" id="dark">
     <link rel="stylesheet" href="da2.css" id="dark2">
     <script src="https://code.jquery.com/jquery-1.10.2.js" type="text/javascript"> </script>
-    <script src="js/dashboard.js" type="text/javascript"> </script>
+    <script src="js/dashboard.js" type="text/javascript"></script>
     <link rel="stylesheet" href="toggleButton.css">
     <style>
         .div-1{
@@ -55,7 +55,7 @@
             <a href="game.jsp" id="game">
                 <img src="images/video-console.png" alt="" class="pl-6 w-14">
             </a>
-            <a href="#" id="smile">
+            <a href="/personalizedCommands" id="smile">
                 <img src="images/smile.png" alt="" class="pl-6 w-14">
             </a>
             <a href="disco.jsp" id="disco">
@@ -92,20 +92,27 @@
                         <img class="mx-auto" src="images/lamp.svg" alt="lamp image">
                     </div>
 
+                    <% ArrayList<String> lampIds = (ArrayList<String>) request.getAttribute("lampIds");
+                        if (lampIds != null){
+                            for (int i = 0; i < lampIds.size(); i++){%>
                     <div class="devices shadow flex flex-col z-50 mx-auto bg-white md:w-48 xl:w-64 2xl:w-80  py-16 md:py-6 xl:py-8 2xl:py-10 h-40  rounded-t-3xl rounded-b-3xl">
-                        <h2 class="">Lamp id: 1</h2>
+                        <h2 class="">Lamp id: <%=i+1%></h2>
                         <div class="flex flex-row justify-center justify-between">
-                            <output class="shadow rounded-full text-5xl ml-2" for="volumeOne" id="lampOne" name="lampOne">50</output>
+                            <output class="shadow rounded-full text-5xl ml-2" for="volumeOne" id="<%=lampIds.get(i)%>/lamp" name="lampOne">50</output>
                             <label class="switch mt-2 mr-6">
-                                <input class="toggle" value="1" type="checkbox" id="toggleOne">
+                                <input class="toggleLamp" value="1" type="checkbox" id="<%=lampIds.get(i)%>">
                                 <span class="slider round"></span>
                             </label>
                         </div>
 
-                        <input class="slider-lamp z-50" type="range" id="volumeOne" name="volumeOne" min="0" max="100" oninput="lampOne.value = volumeOne.value"/>
+                        <input class="slider-lamp z-50" type="range" id="<%=lampIds.get(i)%>" name="volumeOne" min="0" max="100" />
 
                     </div>
 
+                    <%
+                        }
+                            }
+                    %>
 
 
 
@@ -118,64 +125,49 @@
                     <div class="upperDeviceSection shadow -z-50 mx-auto bg-white w-full  px-16 md:px-2 py-16  h-20  rounded-t-3xl">
                         <img class="mx-auto w-12 h-12" src="images/fan.png" alt="lamp image">
                     </div>
-
-                    <div class="devices shadow flex flex-col z-50 mx-auto bg-white md:w-48 xl:w-64 2xl:w-80  py-16 md:py-6 xl:py-8 2xl:py-10 h-40  rounded-t-3xl rounded-b-3xl ">
-                        <h2 class="">Fan id: 1</h2>
+                    <% ArrayList<String> fanIds = (ArrayList<String>) request.getAttribute("fanIds");
+                        if (fanIds != null){
+                            for (int i = 0; i < fanIds.size(); i++){%>
+                    <div class="devices shadow flex flex-col z-50 mx-auto bg-white md:w-48 xl:w-64 2xl:w-80  py-16 md:py-6 xl:py-8 2xl:py-10 h-36  rounded-t-3xl rounded-b-3xl">
+                        <h2 class="">Fan id: <%=i+1%></h2>
                         <div class="flex flex-row justify-center justify-between">
-                            <output class="shadow rounded-full text-5xl ml-2" id="fanOne" for="slideFanOne" name="fanOne">50</output>
+                            <output class="shadow rounded-full text-4xl ml-6" id="<%=fanIds.get(i)%>/fan" for="slideFanOne" name="fanOne">50</output>
                             <label class="switch mt-2 mr-6">
-                                <input class="toggle" value="1" type="checkbox" id="toggleFanOne">
+                                <input class="toggleFan" value="1" type="checkbox" id="<%=fanIds.get(i)%>">
                                 <span class="slider round "></span>
                             </label>
                         </div>
 
-                        <input class="slider-lamp z-50" type="range" id="slideFanOne" name="slideFanOne" min="0" max="100" oninput="fanOne.value = slideFanOne.value"/>
+                        <input class="slider-fan z-50" type="range" id="<%=fanIds.get(i)%>" name="slideFanOne" min="0" max="100" oninput="fanOne.value = slideFanOne.value"/>
 
                     </div>
-
-                    <div class="devices shadow flex flex-col z-50 mx-auto bg-white md:w-48 xl:w-64 2xl:w-80  py-16 md:py-6 xl:py-8 2xl:py-10 h-36  rounded-t-3xl rounded-b-3xl ">
-                        <h2 class="pl-6 text-lg">Fan: 2</h2>
-                        <div class="flex flex-row justify-center justify-between">
-                            <output class="shadow rounded-full text-4xl ml-6" for="volumeTwo" id="fanTwo" name="fanTwo">50</output>
-                            <label class="switch mt-2 mr-6">
-                                <input class="toggle" value="1" type="checkbox" id="toggleFanTwo">
-                                <span class="slider round "></span>
-                            </label>
-                        </div>
-
-                        <input class="slider-lamp z-50 w-72 mx-auto " type="range" id="volumeTwo" name="volumeTwo" min="0" max="100" oninput="fanTwo.value = volumeTwo.value"/>
-
-                    </div>
-
-
+                    <%
+                            }
+                        }
+                    %>
 
                 </div>
+
 
                 <div class="div-2 flex flex-col  space-y-3.5 w-1/4 h-screen rounded-t-3xl">
                     <div class="upperDeviceSection shadow -z-50 mx-auto bg-white w-full  px-16 md:px-2 py-16  h-20  rounded-t-3xl">
                         <img class="mx-auto w-12 h-12" src="images/thermometer.png" alt="lamp image">
                     </div>
-                    <% ArrayList<String> thermoIds = (ArrayList<String>) request.getAttribute("thermoIds");
+                    <% ArrayList<String> thermoIds = (ArrayList<String>) request.getAttribute("thermIds");
                         if (thermoIds != null){
                             for (int i = 0; i < thermoIds.size(); i++){%>
-                    <div class="shadow flex flex-col z-50 mx-auto bg-white md:w-48 xl:w-64 2xl:w-80  py-16 md:py-6 xl:py-8 2xl:py-10 h-40  rounded-t-3xl rounded-b-3xl ">
-                        <h2 class="">Lamp id: <%=i%></h2>
+                    <div class="devices shadow flex flex-col z-50 mx-auto bg-white md:w-48 xl:w-64 2xl:w-80  py-16 md:py-6 xl:py-8 2xl:py-10 h-36  rounded-t-3xl rounded-b-3xl">
+                        <h2 class="">Therm id: <%=i+1%></h2>
                         <div class="flex flex-row justify-center justify-between">
-                            <span class="shadow rounded-full text-5xl ml-2" id="<%=thermoIds.get(i)%>">0</span>
+                            <output class="shadow rounded-full text-4xl ml-6" id="<%=thermoIds.get(i)%>/therm" for="slideFanOne" name="fanOne">50</output>
                             <label class="switch mt-2 mr-6">
-                                <input class="toggle" value="1" type="checkbox" id="<%=thermoIds.get(i)%>">
+                                <input class="toggleTherm" value="1" type="checkbox" id="<%=thermoIds.get(i)%>">
                                 <span class="slider round "></span>
                             </label>
                         </div>
 
-                        <br>
-                        <br>
-                        <input class="slider-lamp z-50" type="range" id="<%=thermoIds.get(i)%>" name="volume" min="0" max="100" onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)"/>
-                        <script type="text/javascript">
-                            function rangeSlide(value) {
-                                document.getElementById('rangeValue').innerHTML = value;
-                            }
-                        </script>
+                        <input class="slider-Therm z-50" type="range" id="<%=thermoIds.get(i)%>" name="slideFanOne" min="0" max="100" oninput="fanOne.value = slideFanOne.value"/>
+
                     </div>
                     <%}
                     } %>
@@ -187,70 +179,50 @@
 
                 <div class="div-2 flex flex-col  space-y-3.5 w-1/4 h-screen rounded-t-3xl">
                     <div class="upperDeviceSection shadow -z-50 mx-auto bg-white w-full  px-16 md:px-2 py-16  h-20  rounded-t-3xl">
-                        <img class="mx-auto w-12 h-12" src="images/others.png" alt="lamp image">
+                        <img class="mx-auto w-12 h-12" src="images/curtains.png" alt="lamp image">
                     </div>
                     <% ArrayList<String> curtainIds = (ArrayList<String>) request.getAttribute("curtainIds");
                         if (curtainIds != null){
                             for (int i = 0; i < curtainIds.size(); i++){%>
-                    <div class="shadow flex flex-col z-50 mx-auto bg-white md:w-48 xl:w-64 2xl:w-80  py-16 md:py-6 xl:py-8 2xl:py-10 h-40  rounded-t-3xl rounded-b-3xl ">
-                        <h2 class="">Lamp id: <%=i%></h2>
+                    <div class="devices shadow flex flex-col z-50 mx-auto bg-white md:w-48 xl:w-64 2xl:w-80  py-16 md:py-6 xl:py-8 2xl:py-10 h-36  rounded-t-3xl rounded-b-3xl">
+                        <h2 class="">Therm id: <%=i+1%></h2>
                         <div class="flex flex-row justify-center justify-between">
-                            <span class="shadow rounded-full text-5xl ml-2" id="<%=curtainIds.get(i)%>">0</span>
+                            <output class="shadow rounded-full text-4xl ml-6" id="<%=curtainIds.get(i)%>/curtain" for="slideFanOne" name="fanOne">50</output>
                             <label class="switch mt-2 mr-6">
-                                <input class="toggle" value="1" type="checkbox" id="<%=curtainIds.get(i)%>">
+                                <input class="toggleCurtain" value="1" type="checkbox" id="<%=curtainIds.get(i)%>">
                                 <span class="slider round "></span>
                             </label>
                         </div>
 
-                        <br>
-                        <br>
-                        <input class="slider-lamp z-50" type="range" id="<%=curtainIds.get(i)%>" name="volume" min="0" max="100" onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)"/>
-                        <script type="text/javascript">
-                            function rangeSlide(value) {
-                                document.getElementById('rangeValue').innerHTML = value;
-                            }
-                        </script>
+                        <input class="slider-curtain z-50" type="range" id="<%=curtainIds.get(i)%>" name="slideFanOne" min="0" max="100" oninput="fanOne.value = slideFanOne.value"/>
+
                     </div>
                     <%}
                     } %>
 
                 </div>
 
-                <div class="div-2 flex flex-col  space-y-3.5 w-1/4 h-screen rounded-t-3xl">
-                    <div class="shadow upperDeviceSection -z-50 mx-auto bg-white w-full  px-16 md:px-2 py-16  h-20  rounded-t-3xl">
-                        <img class="mx-auto w-12 h-12" src="images/others.png" alt="lamp image">
 
-
-                    </div>
-
-
-                </div>
 
                 <div class="div-2 flex flex-col  space-y-3.5 w-1/4 h-screen rounded-t-3xl">
                     <div class="upperDeviceSection shadow -z-50 mx-auto bg-white w-full  px-16 md:px-2 py-16  h-20  rounded-t-3xl">
-                        <img class="mx-auto w-12 h-12" src="images/others.png" alt="lamp image">
+                        <img class="mx-auto w-12 h-12" src="images/window.png" alt="lamp image">
                     </div>
-                    <% ArrayList<String> windowIds = (ArrayList<String>) request.getAttribute("lampIds");
+                    <% ArrayList<String> windowIds = (ArrayList<String>) request.getAttribute("windowIds");
                         if (windowIds != null){
                             for (int i = 0; i < windowIds.size(); i++){%>
-                    <div class="shadow flex flex-col z-50 mx-auto bg-white md:w-48 xl:w-64 2xl:w-80  py-16 md:py-6 xl:py-8 2xl:py-10 h-40  rounded-t-3xl rounded-b-3xl ">
-                        <h2 class="">Lamp id: <%=i%></h2>
+                    <div class="devices shadow flex flex-col z-50 mx-auto bg-white md:w-48 xl:w-64 2xl:w-80  py-16 md:py-6 xl:py-8 2xl:py-10 h-36  rounded-t-3xl rounded-b-3xl">
+                        <h2 class="">Therm id: <%=i+1%></h2>
                         <div class="flex flex-row justify-center justify-between">
-                            <span class="shadow rounded-full text-5xl ml-2" id="<%=windowIds.get(i)%>">0</span>
+                            <output class="shadow rounded-full text-4xl ml-6" id="<%=windowIds.get(i)%>/window" for="slideFanOne" name="fanOne">50</output>
                             <label class="switch mt-2 mr-6">
-                                <input class="toggle" value="1" type="checkbox" id="<%=windowIds.get(i)%>">
+                                <input class="toggleWindow" value="1" type="checkbox" id="<%=windowIds.get(i)%>">
                                 <span class="slider round "></span>
                             </label>
                         </div>
 
-                        <br>
-                        <br>
-                        <input class="slider-lamp z-50" type="range" id="<%=windowIds.get(i)%>" name="volume" min="0" max="100" onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)"/>
-                        <script type="text/javascript">
-                            function rangeSlide(value) {
-                                document.getElementById('rangeValue').innerHTML = value;
-                            }
-                        </script>
+                        <input class="slider-window z-50" type="range" id="<%=windowIds.get(i)%>" name="slideFanOne" min="0" max="100" oninput="fanOne.value = slideFanOne.value"/>
+
                     </div>
                     <%}
                     } %>
@@ -259,29 +231,23 @@
 
                 <div class="div-2 flex flex-col  space-y-3.5 w-1/4 h-screen rounded-t-3xl">
                     <div class="upperDeviceSection shadow -z-50 mx-auto bg-white w-full  px-16 md:px-2 py-16  h-20  rounded-t-3xl">
-                        <img class="mx-auto w-12 h-12" src="images/others.png" alt="lamp image">
+                        <img class="mx-auto w-12 h-12" src="images/bell.png" alt="lamp image">
                     </div>
-                    <% ArrayList<String> alarmIds = (ArrayList<String>) request.getAttribute("lampIds");
+                    <% ArrayList<String> alarmIds = (ArrayList<String>) request.getAttribute("alarmIds");
                         if (alarmIds != null){
                             for (int i = 0; i < alarmIds.size(); i++){%>
-                    <div class="shadow flex flex-col z-50 mx-auto bg-white md:w-48 xl:w-64 2xl:w-80  py-16 md:py-6 xl:py-8 2xl:py-10 h-40  rounded-t-3xl rounded-b-3xl ">
-                        <h2 class="">Lamp id: <%=i%></h2>
+                    <div class="devices shadow flex flex-col z-50 mx-auto bg-white md:w-48 xl:w-64 2xl:w-80  py-16 md:py-6 xl:py-8 2xl:py-10 h-36  rounded-t-3xl rounded-b-3xl">
+                        <h2 class="">Therm id: <%=i+1%></h2>
                         <div class="flex flex-row justify-center justify-between">
-                            <span class="shadow rounded-full text-5xl ml-2" id="<%=alarmIds.get(i)%>">0</span>
+                            <output class="shadow rounded-full text-4xl ml-6" id="<%=alarmIds.get(i)%>/alarm" for="slideFanOne" name="fanOne">50</output>
                             <label class="switch mt-2 mr-6">
-                                <input class="toggle" value="1" type="checkbox" id="<%=alarmIds.get(i)%>">
+                                <input class="toggleAlarm" value="1" type="checkbox" id="<%=alarmIds.get(i)%>">
                                 <span class="slider round "></span>
                             </label>
                         </div>
 
-                        <br>
-                        <br>
-                        <input class="slider-lamp z-50" type="range" id="<%=alarmIds.get(i)%>" name="volume" min="0" max="100" onChange="rangeSlide(this.value)" onmousemove="rangeSlide(this.value)"/>
-                        <script type="text/javascript">
-                            function rangeSlide(value) {
-                                document.getElementById('rangeValue').innerHTML = value;
-                            }
-                        </script>
+                        <input class="slider-alarm z-50" type="range" id="<%=alarmIds.get(i)%>" name="slideFanOne" min="0" max="100" oninput="fanOne.value = slideFanOne.value"/>
+
                     </div>
                     <%}
                     } %>

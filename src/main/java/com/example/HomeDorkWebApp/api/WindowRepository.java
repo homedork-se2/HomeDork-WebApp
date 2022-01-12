@@ -10,15 +10,17 @@ import java.util.List;
 public class WindowRepository {
     ///{userId}/windows
 
-    String baseURL= "http://6ee6-83-248-0-117.ngrok.io/hd-api/users/";
+    String baseURL= "http://258e-83-248-0-117.ngrok.io/hd-api/users/";
     String hdServerLamp = "hd-api/users/";
 ///{userId}/windows (beginning of each alarm)
 
     public List<String> getWindows(String tokenId) {
         List<String> ids = new ArrayList<>();
-        List<Window> windows = Unirest.get( baseURL + tokenId + "/windows")
+        List<Window> windows = Unirest.get(baseURL + tokenId + "/windows")
                 .asObject(new GenericType<List<Window>>() {
                 }).getBody();
+
+        if (windows != null)
         for (int i = 0; i < windows.size(); i++){
             ids.add(windows.get(i).id);
         }
@@ -44,7 +46,7 @@ public class WindowRepository {
 
     public int slideValueWindows(String userId,String windowId, String value) {
 
-        return Unirest.put(baseURL +userId +"/windows"+windowId+ "/adjust/" + value).asString().getStatus();
+        return Unirest.put(baseURL +userId +"/windows/"+windowId+ "/adjust/" + value).asString().getStatus();
 
 
     }

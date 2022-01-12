@@ -59,7 +59,7 @@
             <a href="game.jsp" id="game">
                 <img src="images/video-console.png" alt="" class="pl-6 w-14">
             </a>
-            <a href="#" id="smile">
+            <a href="/personalizedCommands" id="smile">
                 <img src="images/smile.png" alt="" class="pl-6 w-14">
             </a>
             <a href="disco.jsp" id="disco">
@@ -121,10 +121,10 @@
                     const disco = document.querySelector('.disco-lamps');
                     const discoButton = document.getElementById('disco-button');
                     if (disco.style.display === "none") {
-                        discoButton.innerHTML = "Turn off disco mode";
+                        discoButton.innerHTML = "On";
                         disco.style.display = "flex";
                     } else {
-                        discoButton.innerHTML = "Turn on disco mode";
+                        discoButton.innerHTML = "Off";
                         disco.style.display = "none";
                     }
                     setInterval(() => {

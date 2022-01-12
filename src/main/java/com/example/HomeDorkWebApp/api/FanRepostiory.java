@@ -3,52 +3,48 @@ package com.example.HomeDorkWebApp.api;
 import com.example.HomeDorkWebApp.model.Fan;
 import com.example.HomeDorkWebApp.model.Lamp;
 import com.example.HomeDorkWebApp.model.State;
+import com.example.HomeDorkWebApp.model.Window;
 import kong.unirest.GenericType;
 import kong.unirest.Unirest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FanRepostiory {
 
-    String baseURL= "http://e436-83-248-0-117.ngrok.io/hd-api/";
+    String baseURL= "http://258e-83-248-0-117.ngrok.io/hd-api/users/";
 
 
-    public List<Fan> getFan(String tokenId) {
-        List<Fan> fan = Unirest.get( baseURL + tokenId + "/lamp")
+    public List<String> getFans(String tokenId) {
+        List<String> ids = new ArrayList<>();
+        List<Fan> fans = Unirest.get( baseURL + tokenId + "/fans")
                 .asObject(new GenericType<List<Fan>>() {
                 }).getBody();
-        return fan;
-    }
-
-    public State turnOfFan(String ID) {
-        Unirest.post(baseURL + ID + "/turnoff");
-        Fan fan = Unirest.get(baseURL + ID).asObject(Fan.class).getBody();
-        if (fan.state.equals(State.OFF)) {
-            return State.OFF;
-        } else {
-            return State.ON;
+        if (fans != null)
+        for (int i = 0; i < fans.size(); i++){
+            ids.add(fans.get(i).id);
         }
+        return ids;
+    }
+
+    public void turnOffFan(String ID, String fanId) {
+        Unirest.put(baseURL + ID + "/fans/"+ fanId+ "/turnOff").asString();
+
+
     }
 
 
 
-    public Fan turnOnFan(String ID) {
-        Unirest.post(baseURL + ID + "/turnOn");
-        Fan fan = Unirest.get(baseURL + ID).asObject(Fan.class).getBody();
-        return fan;
+    public void turnOnFan(String ID, String fanId) {
+        Unirest.put(baseURL + ID + "/fans/"+ fanId+ "/turnOn").asString();
 
     }
 
-    public double changeValueFan(String ID, double level) {
-        Unirest.post(baseURL + ID + "/adjust/" + level);
-        Fan fan = Unirest.get(baseURL + ID).asObject(Fan.class).getBody();
-        double fanValue = fan.getLevel();
-        if (fanValue != level) {
-            return fanValue;
-        } else {
-            System.out.println("Value did not change ");
-            return fanValue;
-        }
+    public void changeValueFan(String ID, String fanId,  String level) {
+        Unirest.put(baseURL + ID +"/fans/"+fanId+ "/adjust/" + level).asString();
+
+
+
 
 
     }

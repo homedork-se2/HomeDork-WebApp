@@ -9,7 +9,7 @@ import kong.unirest.Unirest;
 import java.util.List;
 
 public class LampRepository {
-    String baseURL= "http://5653-83-248-0-117.ngrok.io/hd-api/users/";
+    String baseURL= "http://258e-83-248-0-117.ngrok.io/hd-api/users/";
     String hdServerLamp = "hd-api/users/";
 
 
@@ -39,7 +39,7 @@ public class LampRepository {
 
     public int changeValueLamp(String userId,String lampId, String level) {
 
-        return Unirest.put(baseURL +userId +"/"+ lampId + "/adjust/" + level).asString().getStatus();
+        return Unirest.put(baseURL +userId +"/lamps/"+ lampId + "/adjust/" + level).asString().getStatus();
 
 
     }

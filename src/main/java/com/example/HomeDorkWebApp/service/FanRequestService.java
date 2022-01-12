@@ -11,6 +11,7 @@ import java.util.List;
 
 
 public class FanRequestService {
+    /*
     FanRepostiory fanRepostiory = new FanRepostiory();
 
     public ArrayList<String> getFans(String userID) {
@@ -47,4 +48,6 @@ public class FanRequestService {
             return true;
         }
     }
+
+     */
 }

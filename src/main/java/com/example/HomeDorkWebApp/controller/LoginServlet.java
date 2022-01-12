@@ -1,9 +1,6 @@
 package com.example.HomeDorkWebApp.controller;
 
-import com.example.HomeDorkWebApp.api.AlarmRepository;
-import com.example.HomeDorkWebApp.api.CurtainRepository;
-import com.example.HomeDorkWebApp.api.ThermometerRepository;
-import com.example.HomeDorkWebApp.api.WindowRepository;
+import com.example.HomeDorkWebApp.api.*;
 import com.example.HomeDorkWebApp.model.User;
 import com.example.HomeDorkWebApp.service.FanRequestService;
 import com.example.HomeDorkWebApp.service.LampRequestService;
@@ -30,6 +27,7 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Map<String, String> messages = new HashMap<>();
         request.setAttribute("messages", messages);
+
         userLoginService = new UserLoginService();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
@@ -39,32 +37,32 @@ public class LoginServlet extends HttpServlet {
         if (user != null){
             HttpSession session =  userLoginService.sessionValidate(user, request);
             String sessionId = (String) session.getAttribute("email");
-
+            System.out.println(sessionId +" <-------------------- CODE BRO");
             LampRequestService lampRequestService = new LampRequestService();
             AlarmRepository alarmRepository = new AlarmRepository();
             CurtainRepository curtainRepository = new CurtainRepository();
             ThermometerRepository thermometerRepository = new ThermometerRepository();
             WindowRepository windowRepository = new WindowRepository();
             FanRequestService fanRequestService = new FanRequestService();
+            FanRepostiory fanRepostiory = new FanRepostiory();
 
-            ArrayList<String> lampIDs = lampRequestService.getLamp("123");
+            ArrayList<String> lampIDs = lampRequestService.getLamp(sessionId);
 
-            /*
-             ArrayList<String> alarmIDs = (ArrayList<String>) alarmRepository.getAlarms("123");
-            ArrayList<String> alarmIDs = (ArrayList<String>) alarmRepository.getAlarms("123");
-            ArrayList<String> curtainIds = (ArrayList<String>) curtainRepository.getCurtains("123");
-            ArrayList<String> thermometerIDs = (ArrayList<String>) thermometerRepository.getThermometers("123");
-            ArrayList<String> windowIDs = (ArrayList<String>) windowRepository.getWindows("123");
-            ArrayList<String> fanIDs = fanRequestService.getFans("123");
-            System.out.println(lampIDs);
+
+
+            ArrayList<String> alarmIDs = (ArrayList<String>) alarmRepository.getAlarms(sessionId);
+            ArrayList<String> curtainIds = (ArrayList<String>) curtainRepository.getCurtains(sessionId);
+            ArrayList<String> thermometerIDs = (ArrayList<String>) thermometerRepository.getThermometers(sessionId);
+            ArrayList<String> windowIDs = (ArrayList<String>) windowRepository.getWindows(sessionId);
+            ArrayList<String> fanIDs = (ArrayList<String>) fanRepostiory.getFans(sessionId);
+
 
 
             request.setAttribute("curtainIds", curtainIds);
-            request.setAttribute("thermomds", thermometerIDs);
+            request.setAttribute("thermIds", thermometerIDs);
             request.setAttribute("windowIds", windowIDs);
             request.setAttribute("fanIds", fanIDs);
-
-             */
+            request.setAttribute("alarmIds", alarmIDs);
             request.setAttribute("lampIds", lampIDs);
 
 
